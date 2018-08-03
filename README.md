@@ -1,3 +1,19 @@
+# Setup 
+    
+    npm install @angular/cli -g
+    
+    git clone https://github.com/nodesense/macquarie-aug-2018
+    
+    cd macquarie-aug-2018
+
+    npm install
+
+    ng serve
+
+
+if git not working, install git from https://git-scm.com/
+
+
 # ProductApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
