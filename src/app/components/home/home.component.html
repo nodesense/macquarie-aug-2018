@@ -1,0 +1,28 @@
+<h2>{{title}}</h2>
+
+<!-- 
+  {{expr}} - interpolation
+  []="expr" - property binding
+  ()="expr" - event binding
+-->
+
+<p> Counter {{counter}} </p>
+<p>Counter + 2 {{counter + 2}} </p> 
+
+<input [value]="counter" />
+
+<input [value]="counter + 2" />
+
+<button [disabled]="counter % 2 == 0">
+   Btn
+</button>
+
+<p> {{ counter % 2 == 0? 'Even' : 'Odd'}} </p>
+
+<button (click)="increment()">
+  +1
+</button>
+
+<button (click)="counter = counter - 1">
+  -1
+</button>

@@ -13,6 +13,6 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
     // models
-    appTitle: string = 'Product App';
+    appTitle: string = 'Product App 3';
 
 }

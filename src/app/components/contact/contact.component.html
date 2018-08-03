@@ -1,0 +1,24 @@
+<h2>Contact</h2>
+
+<!-- elvis ?. nul/undefined check -->
+<p> City {{address?.city?.length}}</p>
+
+<p> Phone {{phone}} </p>
+
+<!-- real dom 
+
+  # - Template Reference Variable
+-->
+<div>
+   
+  <input #streetName />
+</div>
+
+
+<p #p1>
+  Street Name
+</p>
+
+<button (click)="p1.textContent = streetName.value">
+  Set
+</button>
