@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   // type inference
   counter = 100;
 
+  homeLikes = 1000;
+
   constructor() { }
 
   ngOnInit() {

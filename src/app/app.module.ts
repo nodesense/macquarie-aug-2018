@@ -7,10 +7,16 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { SharedModule } from './shared/shared.module';
+
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
-         BrowserModule,
+         BrowserModule, // refers to CommonModule, Compiler
+         FormsModule,
+
+         SharedModule
 
          //ProductModule
     ],
@@ -21,8 +27,7 @@ import { ContactComponent } from './components/contact/contact.component';
         FooterComponent,
         HomeComponent,
         AboutComponent,
-        ContactComponent,
-        // HeaderComponent, etc
+        ContactComponent
     ],
 
     bootstrap: [

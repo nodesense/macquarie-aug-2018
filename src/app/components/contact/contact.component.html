@@ -22,3 +22,8 @@
 <button (click)="p1.textContent = streetName.value">
   Set
 </button>
+
+<p> contact likes {{contactLikes}} </p>
+<app-like [(likes)]="contactLikes">
+
+  </app-like>

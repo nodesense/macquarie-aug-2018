@@ -1,7 +1,7 @@
 <h2>{{title}}</h2>
 
 <!-- 
-  {{expr}} - interpolation
+  {{expr}} - interpolation, evaluate expression, toString (convert to string)
   []="expr" - property binding
   ()="expr" - event binding
 -->
@@ -13,6 +13,18 @@
 
 <input [value]="counter + 2" />
 
+<input bind-value="counter + 2" />
+
+<p>Two way binding [()] </p>
+
+<input [(ngModel)]="counter" type="number" />
+
+<p>Non sugar</p>
+<input [ngModel]="counter" 
+       (ngModelChange)="counter = $event" 
+        type="number" />
+
+
 <button [disabled]="counter % 2 == 0">
    Btn
 </button>
@@ -23,6 +35,19 @@
   +1
 </button>
 
-<button (click)="counter = counter - 1">
+<button on-click="counter = counter - 1">
   -1
 </button>
+
+<!-- from shared module -->
+
+<p> Home Likes {{homeLikes}}</p>
+<app-like [(likes)]="homeLikes">
+
+</app-like>
+
+<app-like [likes]="counter"
+          (likesChange)="counter = $event"
+>
+
+</app-like>
