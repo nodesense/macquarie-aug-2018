@@ -5,16 +5,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Brand } from '../../models/brand';
 
+// interface.ts 
+export interface IEditableComponent {
+  saved: boolean;
+}
+
+
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.css']
 })
-export class ProductEditComponent implements OnInit {
+export class ProductEditComponent implements OnInit, IEditableComponent {
 
   product: Product = new Product(); // create
 
   brands$: Observable<Brand[]>;
+
+  saved = false;
 
   constructor(private router: Router, 
               private route: ActivatedRoute, 
@@ -36,6 +44,9 @@ export class ProductEditComponent implements OnInit {
   }
 
   saveProduct() {
+    
+    this.saved = true;
+
     this.productService
         .saveProduct(this.product)
         .subscribe (savedProduct => {

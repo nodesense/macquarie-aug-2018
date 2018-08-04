@@ -1,3 +1,5 @@
+import { SaveAlertGuard } from './guards/save-alert.guard';
+import { CanEditGuard } from './guards/can-edit.guard';
 import { SharedModule } from './../shared/shared.module';
 import { ProductService } from './services/product.service';
 import { NgModule } from '@angular/core';
@@ -27,12 +29,16 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: ProductEditComponent
+        component: ProductEditComponent,
+        canActivate: [CanEditGuard],
+        canDeactivate: [SaveAlertGuard]
       },
 
       {
         path: 'edit/:id',  // products/edit/12345
-        component: ProductEditComponent
+        component: ProductEditComponent,
+        canActivate: [CanEditGuard],
+        canDeactivate: [SaveAlertGuard]
       },
 
       {
@@ -61,7 +67,10 @@ const routes: Routes = [
 
   providers: [
     // global for entire application, singleton
-    ProductService
+    ProductService,
+
+    CanEditGuard,
+    SaveAlertGuard
   ]
 })
 export class ProductModule { }

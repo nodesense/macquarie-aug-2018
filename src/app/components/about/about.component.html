@@ -13,7 +13,7 @@
 
 <h2>Members</h2>
 
-<ul *ngIf="showMembers else memberElsePart">
+<ul *ngIf="showMembers else memberElsePart"     appHighlight>
   <li *ngFor="let member of members">
      {{member.name}}-{{member.role}}
   </li>
