@@ -1,0 +1,37 @@
+<h2>Product List</h2>
+    
+<p> Date {{today | date | uppercase}} </p>
+
+<p> Date {{today | date:'yyyy/MM/dd'}} </p>
+
+<p> Power Pipe {{2 | power:3}}</p>
+<p> Power Pipe {{5 | power}}</p>
+
+<input name="operator" [(ngModel)]="operator" />
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Year</th>
+    <th>Delete</th>
+  </tr>
+
+  <!-- <tr *ngFor="let product of products"> -->
+    <tr *ngFor="let product of (products$ | async) | filter:'price':operator:300 " >
+    <td>
+      <a [routerLink]="[ '/products', 'edit', product.id ]">
+          <!-- {{product.name}} -->
+          {{product.name | uppercase }}
+      </a>
+    
+    </td>
+    <td>{{product.price | currency:'INR'}}</td>
+    <td>{{product.year}}</td>
+    <td>
+        <button (click)="deleteProduct(product.id)">
+          Delete
+        </button>
+    </td>
+  </tr>
+</table>
